@@ -3,6 +3,8 @@ import { createBrowserRouter } from "react-router-dom";
 
 import LoginPage from "../pages/LoginPage";
 import SignupPage from "../pages/SignupPage";
+import GroupMainPage from "../pages/GroupMainPage";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -12,6 +14,11 @@ const router = createBrowserRouter([
   {
     path: "/signup",
     element: <SignupPage />,
+    index: true,
+  },
+  {
+    path: "/main",
+    element: <GroupMainPage />,
     index: true,
   },
 ]);

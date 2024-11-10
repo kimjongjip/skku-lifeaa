@@ -5,6 +5,20 @@ import DefaultProfile from "../assets/profile_default.png";
 
 export default function GroupMainPage() {
     const [Profile, setProfile] = useState(DefaultProfile);
+    const [groupName, setGroupName] = useState("모임 이름");
+    const [groupIntro, setGroupIntro] = useState("모임 소개문");
+
+    const users = [
+        { id: 1, name: "user1", profilePic: DefaultProfile },
+        { id: 2, name: "user2", profilePic: DefaultProfile },
+        { id: 3, name: "user3", profilePic: DefaultProfile },
+        { id: 4, name: "user4", profilePic: DefaultProfile },
+        { id: 5, name: "user5", profilePic: DefaultProfile },
+        { id: 6, name: "user6", profilePic: DefaultProfile },
+        { id: 7, name: "user7", profilePic: DefaultProfile },
+        { id: 8, name: "user8", profilePic: DefaultProfile },
+        { id: 9, name: "user9", profilePic: DefaultProfile },
+    ];
 
     return (
     <div
@@ -25,8 +39,8 @@ export default function GroupMainPage() {
             <div style={{ display: "flex", margin: "0", width: "100%" }}>
                 <Avatar src={Profile} style={{ width: 80, height: 80, marginRight: "20px", marginLeft: "0" }} />
                 <div style={{display:"flex", flexDirection:"column", gap: "5px", margin: "auto 0"}}>
-                    <h3 style={{margin: "0"}}>모임 이름</h3>
-                    <p style={{margin: "0"}}>모임 한줄 소개문</p>
+                    <h3 style={{margin: "0"}}>{groupName}</h3>
+                    <p style={{margin: "0"}}>{groupIntro}</p>
                 </div>
             </div>
             {/* 통계 부분 */}
@@ -41,10 +55,10 @@ export default function GroupMainPage() {
             <div style={{width:"100%"}}>
                 <h3 style={{marginBottom:"5px"}}>모임원</h3>
                 <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(85px, 1fr))", rowGap:"15px", columnGap:"5px" }}>
-                {[...Array(9)].map((_, index) => (
-                    <div key={index} style={{ textAlign: "center", width: 85, height: 100}}>
-                    <Avatar src={Profile} style={{ width: 70, height: 70}} />
-                    <p>user1</p>
+                {users.map((user) => (
+                    <div key={user.id} style={{ textAlign: "center", width: 85, height: 100}}>
+                    <Avatar src={user.profilePic} style={{ width: 70, height: 70}} />
+                    <p>{user.name}</p>
                     </div>
                 ))}
                 </div>

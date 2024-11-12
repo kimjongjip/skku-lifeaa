@@ -3,8 +3,8 @@ import { createBrowserRouter } from "react-router-dom";
 
 import LoginPage from "../pages/LoginPage";
 import SignupPage from "../pages/SignupPage";
-import GroupMainPage from "../pages/GroupMainPage";
 import CertificationPage from "../pages/CertificationPage";
+import PersonalCertificationPage from "../pages/PersonalCertificationPage";
 
 const router = createBrowserRouter([
   {
@@ -18,14 +18,13 @@ const router = createBrowserRouter([
     index: true,
   },
   {
-    path: "/main",
-    element: <GroupMainPage />,
-    index: true,
-  },
-  {
     path: "/certificate",
     element: <CertificationPage />,
     index: true,
+  },
+  {
+    path: "/certificate/:id",
+    element: <PersonalCertificationPage />,
   },
 ]);
 

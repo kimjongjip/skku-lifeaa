@@ -1,19 +1,20 @@
-import React from "react";
+import logoImg from "/src/assets/logo.png";
 
 export default function Header() {
   return (
     <div
       style={{
-        width: "100%",
+        width: "390px",
         display: "flex",
         flexDirection: "row",
         height: "60px",
-        position: "sticky",
+        position: "fixed",
+        backgroundColor: "white",
         top: 0,
       }}
     >
       <img
-        src="src/assets/logo.png"
+        src={logoImg}
         alt="logo"
         style={{
           width: "30%",

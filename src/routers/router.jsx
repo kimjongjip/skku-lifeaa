@@ -4,6 +4,7 @@ import { createBrowserRouter } from "react-router-dom";
 import LoginPage from "../pages/LoginPage";
 import SignupPage from "../pages/SignupPage";
 import GroupMainPage from "../pages/GroupMainPage";
+import CertificationPage from "../pages/CertificationPage";
 
 const router = createBrowserRouter([
   {
@@ -19,6 +20,11 @@ const router = createBrowserRouter([
   {
     path: "/main",
     element: <GroupMainPage />,
+    index: true,
+  },
+  {
+    path: "/certificate",
+    element: <CertificationPage />,
     index: true,
   },
 ]);

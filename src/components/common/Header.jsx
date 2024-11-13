@@ -16,11 +16,9 @@ export default function Header() {
         src="src/assets/logo.png"
         alt="logo"
         style={{
-          width: "30%",
+          width: "10%",
           objectFit: "contain",
-          height: "60px",
-          objeftFit: "contain",
-          padding: "5px",
+          
         }}
       />
       <div style={{ width: "70%", textAlign: "left" }}>스꾸라이프</div>

@@ -3,10 +3,10 @@ name: CI
 on:
   push:
     branches:
-      - integration
+      - main
   pull_request:
     branches:
-      - integration
+      - main
 
 jobs:
   test:
@@ -21,22 +21,11 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          # Lambda runtime 및 프로젝트 요구사항에 맞춘 Node.js 버전 설정
-          node-version: 20
+          node-version: 16
 
       # Install dependencies
       - name: Install dependencies
         run: npm install
-
-      # Set Chrome environment for compatibility
-      - name: Install Chrome
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y wget gnupg
-          wget -q -O - https://dl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
-          echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" | sudo tee /etc/apt/sources.list.d/google-chrome.list
-          sudo apt-get update
-          sudo apt-get install -y google-chrome-stable
 
       # Run tests with coverage
       - name: Run tests and generate coverage
@@ -46,14 +35,8 @@ jobs:
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v3
         with:
-          # Codecov Token은 GitHub Secrets에 저장되어야 함
-          token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./coverage/lcov.info
+          token: ${{ secrets.CODECOV_TOKEN }}  # GitHub Secrets에서 토큰 가져오기
+          files: ./coverage/lcov-report/lcov-report.html  # Codecov에 업로드할 커버리지 리포트 파일 경로
           flags: unittests
-          name: Frontend-Coverage
-
-      # Ensure compatibility with minimal RAM and disk space
-      - name: Check system requirements
-        run: |
-          free -m | awk 'NR==2{printf "Memory Usage: %s/%sMB\n", $3,$2 }'
-          df -h | awk '$NF=="/"{printf "Disk Usage: %d/%dGB\n", $3,$2}'
+          name: node-coverage-report
+          fail_ci_if_error: true  # 업로드 실패 시 CI 실패로 처리

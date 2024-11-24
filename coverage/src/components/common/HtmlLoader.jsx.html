@@ -25,28 +25,28 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>0/35</span>
+                <span class='fraction'>0/27</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">0% </span>
+                <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/0</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Functions</span>
-                <span class='fraction'>0/1</span>
+                <span class='fraction'>0/6</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>0/35</span>
+                <span class='fraction'>0/26</span>
             </div>
         
             
@@ -110,7 +110,7 @@
 <a name='L45'></a><a href='#L45'>45</a>
 <a name='L46'></a><a href='#L46'>46</a>
 <a name='L47'></a><a href='#L47'>47</a>
-<a name='L48'></a><a href='#L48'>48</a></td><td class="line-coverage quiet"><span class="cline-any cline-no">&nbsp;</span>
+<a name='L48'></a><a href='#L48'>48</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -125,8 +125,8 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
@@ -146,45 +146,45 @@
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js"><span class="cstat-no" title="statement not covered" >import React, { useEffect } from 'react';<span class="fstat-no" title="function not covered" ><span class="branch-0 cbranch-no" title="branch not covered" ></span></span></span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import React, { useEffect } from 'react';
 &nbsp;
-<span class="cstat-no" title="statement not covered" >const HtmlLoader = ({ file }) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >    useEffect(() =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >        const url = window.location.href;</span>
+const HtmlLoader = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >({</span> file }) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >    useEffect(<span class="fstat-no" title="function not covered" >() =&gt; {</span></span>
+        const url = <span class="cstat-no" title="statement not covered" >window.location.href;</span>
 &nbsp;
         // CSS Preloader
-<span class="cstat-no" title="statement not covered" >        const loadCSS = (href) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >            return new Promise((resolve, reject) =&gt; {</span>
-<span class="cstat-no" title="statement not covered" >                const link = document.createElement('link');</span>
+        const loadCSS = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >(h</span>ref) =&gt; {</span>
+<span class="cstat-no" title="statement not covered" >            return new Promise(<span class="fstat-no" title="function not covered" >(r</span>esolve, reject) =&gt; {</span>
+                const link = <span class="cstat-no" title="statement not covered" >document.createElement('link');</span>
 <span class="cstat-no" title="statement not covered" >                link.rel = 'stylesheet';</span>
 <span class="cstat-no" title="statement not covered" >                link.href = href;</span>
 <span class="cstat-no" title="statement not covered" >                link.onload = resolve;</span>
 <span class="cstat-no" title="statement not covered" >                link.onerror = reject;</span>
 <span class="cstat-no" title="statement not covered" >                document.head.appendChild(link);</span>
-<span class="cstat-no" title="statement not covered" >            });</span>
-<span class="cstat-no" title="statement not covered" >        };</span>
+            });
+        };
 &nbsp;
         // Get HTML
-<span class="cstat-no" title="statement not covered" >        const loadContent = async () =&gt; {</span>
+        const loadContent = <span class="cstat-no" title="statement not covered" ><span class="fstat-no" title="function not covered" >async () =&gt; {</span></span>
 <span class="cstat-no" title="statement not covered" >            try {</span>
-<span class="cstat-no" title="statement not covered" >                const response = await fetch(file);</span>
-<span class="cstat-no" title="statement not covered" >                const html = await response.text();</span>
+                const response = <span class="cstat-no" title="statement not covered" >await fetch(file);</span>
+                const html = <span class="cstat-no" title="statement not covered" >await response.text();</span>
 &nbsp;
-<span class="cstat-no" title="statement not covered" >                const parser = new DOMParser();</span>
-<span class="cstat-no" title="statement not covered" >                const doc = parser.parseFromString(html, 'text/html');</span>
-<span class="cstat-no" title="statement not covered" >                const linkTags = doc.querySelectorAll('link[rel="stylesheet"][href]');</span>
-<span class="cstat-no" title="statement not covered" >                const cssHrefs = Array.from(linkTags).map(link =&gt; link.getAttribute('href'));</span>
+                const parser = <span class="cstat-no" title="statement not covered" >new DOMParser();</span>
+                const doc = <span class="cstat-no" title="statement not covered" >parser.parseFromString(html, 'text/html');</span>
+                const linkTags = <span class="cstat-no" title="statement not covered" >doc.querySelectorAll('link[rel="stylesheet"][href]');</span>
+                const cssHrefs = <span class="cstat-no" title="statement not covered" >Array.from(linkTags).map(<span class="fstat-no" title="function not covered" >link =&gt; <span class="cstat-no" title="statement not covered" >l</span>ink.getAttribute('href'))</span>;</span>
                 
                 // Load all
 <span class="cstat-no" title="statement not covered" >                await Promise.all(cssHrefs.map(loadCSS));</span>
@@ -193,25 +193,25 @@
 <span class="cstat-no" title="statement not covered" >                document.open();</span>
 <span class="cstat-no" title="statement not covered" >                document.write(html);</span>
 <span class="cstat-no" title="statement not covered" >                document.close();</span>
-<span class="cstat-no" title="statement not covered" >            } catch (error) {</span>
+            } catch (error) {
 <span class="cstat-no" title="statement not covered" >                console.error('Error loading HTML:', error);</span>
-<span class="cstat-no" title="statement not covered" >            }</span>
-<span class="cstat-no" title="statement not covered" >        };</span>
+            }
+        };
         
 <span class="cstat-no" title="statement not covered" >        loadContent();</span>
-<span class="cstat-no" title="statement not covered" >    }, [file]);</span>
+    }, [file]);
 &nbsp;
 <span class="cstat-no" title="statement not covered" >    return null;</span>
-<span class="cstat-no" title="statement not covered" >};</span>
+};
 &nbsp;
-<span class="cstat-no" title="statement not covered" >export default HtmlLoader;</span></pre></td></tr></table></pre>
+export default HtmlLoader;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at 2024-11-24T03:36:37.583Z
+                at 2024-11-24T03:56:54.370Z
             </div>
         <script src="../../../prettify.js"></script>
         <script>

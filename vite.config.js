@@ -14,9 +14,10 @@ export default defineConfig({
     setupFiles: './src/test/setup.ts', // setup.ts 파일 경로
     include: ['tests/**/*.test.jsx', 'tests/**/*.test.tsx'],
     coverage: {
-      provider: 'c8', // c8을 사용해 커버리지 리포트를 생성
-      reporter: ['text', 'lcov', 'clover'], // lcov, clover 리포터를 추가
-      reportsDirectory: './coverage', // 커버리지 리포트 디렉토리 설정
+      provider: 'istanbul',  // 'c8'을 커버리지 제공자로 사용
+      reporter: ['text', 'lcov', 'html'], // 커버리지 리포트 형식 설정
+      all: true, // 테스트되지 않은 파일도 포함
+      exclude: ['node_modules', 'dist', 'coverage'], // 제외할 디렉토리
     },
   },
 });

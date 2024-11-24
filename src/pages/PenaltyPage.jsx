@@ -1,41 +1,38 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "../components/common/Header";
 import Nav from "../components/common/Nav";
 
 export default function PenaltyPage() {
-  // 초기 예시 데이터
-  const initialMessages = [
-    {
-      date: "2024년 3월 21일 목요일",
-      time: "12:00",
-      content: "모두가 목표를 달성했어요! 오늘도 수고하셨습니다 👏",
-      type: "nopenalty",
-      timestamp: new Date("2024-03-21 12:00").getTime()
-    },
-    {
-      date: "2024년 3월 20일 수요일",
-      time: "23:50",
-      content: "김성실(2022123456)님의 벌칙이 이열심(2023111111)님에게 전달되었습니다.",
-      type: "penalty",
-      timestamp: new Date("2024-03-20 23:50").getTime()
-    },
-    {
-      date: "2024년 3월 20일 수요일",
-      time: "23:45",
-      content: "박공부(2023222222)님의 벌칙이 최노력(2024333333)님에게 전달되었습니다.",
-      type: "penalty",
-      timestamp: new Date("2024-03-20 23:45").getTime()
-    },
-    {
-      date: "2024년 3월 19일 화요일",
-      time: "12:00",
-      content: "모두가 목표를 달성했어요! 오늘도 수고하셨습니다 👏",
-      type: "nopenalty",
-      timestamp: new Date("2024-03-19 12:00").getTime()
-    }
-  ];
+  const [messages, setMessages] = useState([]);
 
-  const [messages, setMessages] = useState(initialMessages);
+  // 메시지 가져오기
+  const fetchMessages = async () => {
+    try {
+      const response = await fetch('https://nsptbxlxoj.execute-api.ap-northeast-2.amazonaws.com/dev/penalty/1/log');
+      const data = await response.json();
+      
+      // API 응답 형식을 기존 메시지 형식으로 변환
+      const formattedMessages = data.penaltyLogs.map(log => {
+        const date = new Date(log.alaramDate);
+        return {
+          date: formatDate(date),
+          time: `${String(date.getHours()).padStart(2, '0')}:${String(date.getMinutes()).padStart(2, '0')}`,
+          content: log.alarmMessage,
+          type: log.alarmType,
+          timestamp: date.getTime()
+        };
+      });
+
+      setMessages(formattedMessages);
+    } catch (error) {
+      console.error('메시지 가져오기 실패:', error);
+    }
+  };
+
+  // 컴포넌트 마운트 시 메시지 가져오기
+  useEffect(() => {
+    fetchMessages();
+  }, []);
 
   // 날짜 포맷팅 함수
   const formatDate = (date) => {
@@ -151,7 +148,6 @@ export default function PenaltyPage() {
       <Header />
       <Nav />
 
-      {/* 테스트용 버튼 */}
       <div style={{
         display: "flex",
         justifyContent: "center",
@@ -184,6 +180,7 @@ export default function PenaltyPage() {
           목표달성 메시지 추가
         </button>
       </div>
+     
 
       <div style={{
         display: "flex",

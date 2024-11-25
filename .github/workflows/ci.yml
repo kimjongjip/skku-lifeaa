@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repository
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Set up Node.js
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
+
+      # Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Install Headless Chrome
+      - name: Install Chrome
+        run: sudo apt-get install -y chromium-browser
+
+      # Set Chrome path environment variable
+      - name: Set CHROME_PATH
+        run: echo "CHROME_PATH=/usr/bin/chromium-browser" >> $GITHUB_ENV
+
+      # Run tests with coverage
+      - name: Run tests and generate coverage
+        run: npm run test:coverage
+
+      # Upload coverage to Codecov
+      - name: Upload coverage to Codecov
+        uses: codecov/codecov-action@v3
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }} 
+          files: ./coverage/lcov.info          
+          flags: unittests
+          name: node-coverage-report
+          fail_ci_if_error: true  

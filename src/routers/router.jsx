@@ -3,17 +3,44 @@ import { createBrowserRouter } from "react-router-dom";
 
 import LoginPage from "../pages/LoginPage";
 import SignupPage from "../pages/SignupPage";
+import HtmlLoader from "../components/common/HtmlLoader";
+import CertificationPage from "../pages/CertificationPage";
+import PersonalCertificationPage from "../pages/PersonalCertificationPage";
+import GroupMainPage from "../pages/GroupMainPage";
+import PenaltyPage from "../pages/PenaltyPage";
+
+
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <LoginPage />,
+    element: <HtmlLoader file="/html/templates/login.html" />,
     index: true,
   },
   {
     path: "/signup",
-    element: <SignupPage />,
+    element: <HtmlLoader file="/html/templates/signup.html" />,
     index: true,
   },
+  {
+    path: "/certificate",
+    element: <CertificationPage />,
+    index: true,
+  },
+  {
+    path: "/certificate/:id",
+    element: <PersonalCertificationPage />,
+  },
+  {
+    path: "/penalty",
+    element: <PenaltyPage />,
+    index: true,
+  },
+  {
+    path: "/main",
+    element: <GroupMainPage />,
+    index: true,
+  },
+
 ]);
 
 export default router;

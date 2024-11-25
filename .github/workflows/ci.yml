@@ -40,11 +40,15 @@ jobs:
         run: npm run test:coverage
 
       # Upload coverage to Codecov
-      - name: Upload coverage to Codecov
-        uses: codecov/codecov-action@v3
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4
         with:
-          token: ${{ secrets.CODECOV_TOKEN }} 
-          files: ./coverage/lcov.info          
+          token: ${{ secrets.CODECOV_TOKEN }}
+          files: ./coverage/lcov.info  # Ensure this path is correct
           flags: unittests
           name: node-coverage-report
-          fail_ci_if_error: true  
+          fail_ci_if_error: true 
+
+  
+        
+  

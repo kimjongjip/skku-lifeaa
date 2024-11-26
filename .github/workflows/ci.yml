@@ -33,7 +33,7 @@ jobs:
         run: npm run test:coverage
 
       # Display lcov.info content for debugging
-      - name: Display lcov.info content
+      - name: Display lcov.info content for debugging
         run: cat ./coverage/lcov.info
 
       # Upload coverage to Codecov
@@ -45,6 +45,7 @@ jobs:
           name: node-coverage-report
           fail_ci_if_error: true 
           verbose: true
+
 
   
         

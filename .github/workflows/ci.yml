@@ -33,12 +33,12 @@ jobs:
         run: npm run test:coverage
 
       # Display lcov.info content for debugging
-      - name: Display lcov.info content for debugging
+      - name: Display lcov.info content 
         run: cat ./coverage/lcov.info
 
       # Upload coverage to Codecov
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@latest
+        uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ${{ github.workspace }}/coverage/lcov.info  # Ensure this path is correct

@@ -35,6 +35,14 @@ jobs:
       # Display lcov.info content for debugging
       - name: Display lcov.info content 
         run: cat ./coverage/lcov.info
+      
+      # 토큰 디버깅을 위한 스텝 추가
+      - name: Debug Codecov Token
+        run: |
+          echo "Token starts with: ${CODECOV_TOKEN:0:5}..."
+          echo "Token length: ${#CODECOV_TOKEN}"
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
       # Upload coverage to Codecov
       - name: Upload coverage reports to Codecov

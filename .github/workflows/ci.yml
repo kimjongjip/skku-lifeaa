@@ -42,7 +42,6 @@ jobs:
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
           files: ./coverage/lcov.info  # Ensure this path is correct
-          flags: unittests
           name: node-coverage-report
           fail_ci_if_error: true 
 

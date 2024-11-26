@@ -41,9 +41,10 @@ jobs:
         uses: codecov/codecov-action@v4
         with:
           token: ${{ secrets.CODECOV_TOKEN }}
-          files: ./coverage/lcov.info  # Ensure this path is correct
+          files: ${{ github.workspace }}/coverage/lcov.info  # Ensure this path is correct
           name: node-coverage-report
           fail_ci_if_error: true 
+          verbose: true
 
   
         

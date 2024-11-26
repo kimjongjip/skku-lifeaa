@@ -39,14 +39,14 @@ jobs:
       # 토큰 디버깅을 위한 스텝 추가
       - name: Debug Codecov Token
         run: |
-          echo "Token starts with: ${CODECOV_TOKEN:0:5}..."
+          echo "Token starts with: ${CODECOV_TOKEN:0:32}..."
           echo "Token length: ${#CODECOV_TOKEN}"
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
 
       # Upload coverage to Codecov
       - name: Upload coverage reports to Codecov
-        uses: codecov/codecov-action@v4
+        uses: codecov/codecov-action@v3.1.4
         env:
           CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
         with:
